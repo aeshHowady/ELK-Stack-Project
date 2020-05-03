@@ -47,30 +47,34 @@ _Note: Use the [Markdown Table Generator](http://www.tablesgenerator.com/markdow
 | Jump Box     | Gateway         | 10.0.0.4   | Linux (Ubuntu 18.04)|
 | DVWA-VM1     |  host DVWA      | 10.0.0.8   |Linux (Ubuntu 18.04) |
 | DVWA-VM2     |  host DVWA      | 10.0.0.9   |Linux (Ubuntu 18.04) |
-|ELK-Server    |  host ELK       | 10.0.0.14  | Linux (Ubuntu 18.04)|
+|ELK-Server    |  host ELK       | 10.0.0.14  |Linux (Ubuntu 18.04) |
 
 ### Access Policies
 
 The machines on the internal network are not exposed to the public Internet. 
 
-Only the _____ machine can accept connections from the Internet. Access to this machine is only allowed from the following IP addresses:
-- _TODO: Add whitelisted IP addresses_
+Only the Load Balancer machine can accept connections from the Internet. Access to this machine is only allowed from the following IP addresses:
+- XX.XX.0.0/16  ( home machine IP address) 
 
-Machines within the network can only be accessed by _____.
-- _TODO: Which machine did you allow to access your ELK VM? What was its IP address?_
+Machines within the network can only be accessed by _Jump box via SSH__.
+- Which machine did you allow to access your ELK VM? What was its IP address?_
+Jump box , 40.83.146.75 
 
 A summary of the access policies in place can be found in the table below.
 
 | Name     | Publicly Accessible | Allowed IP Addresses |
 |----------|---------------------|----------------------|
-| Jump Box | Yes/No              | 10.0.0.1 10.0.0.2    |
-|          |                     |                      |
-|          |                     |                      |
+| Jump Box |  Yes                | 10.0.0.4             |
+|DVWA-VM1  |  No                 | X.X.0.0/16           |
+|DVWA-VM2  |  No                 | X.X.0.0/16           |
+|ELK-Server|  No                 | X.X.0.0/16           |
+
 
 ### Elk Configuration
 
-Ansible was used to automate configuration of the ELK machine. No configuration was performed manually, which is advantageous because...
-- _TODO: What is the main advantage of automating configuration with Ansible?_
+Ansible was used to automate configuration of the ELK machine. No configuration was performed manually, which is advantageous because it garantees that configuration is identicall.
+-What is the main advantage of automating configuration with Ansible?_
+Configuration with Ansible is agentless, where is done by running the playbook files to automate one device or multiple devices.
 
 The playbook implements the following tasks:
 - _TODO: In 3-5 bullets, explain the steps of the ELK installation play. E.g., install Docker; download image; etc._
