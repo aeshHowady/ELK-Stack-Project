@@ -94,18 +94,18 @@ pip:\
 name: docker<br/>
 state: present
 
--_this task of the playbook is to increase the virtual memory on the VM, which is a system requirement for the ELK container\
-name: Increase virtual memory\ 
-command: sysctl -w vm.max_map_count=262144\
+this task of the playbook is to increase the virtual memory on the VM, which is a system requirement for the ELK container<br/>
+name: Increase virtual memory<br/>
+command: sysctl -w vm.max_map_count=262144<br/>
 
--_Use docker_container module, Launching and Exposing the Container, so after Docker is installed, download and run the image sebp/elk container that should be started with the following published ports.\
-name: download and launch a docker elk container
+Use docker_container module, Launching and Exposing the Container, so after Docker is installed, download and run the image sebp/elk container that should be started with the following published ports.<br/>
+name: download and launch a docker elk container<br/>
 docker_container:
  name: elk\
  image: sebp/elk\
  state: started<br/>
- published_ports:\
- 5601:5601\
+ published_ports:
+ 5601:5601
  9200:9200<br/> 
  5044:5044
 
@@ -176,7 +176,7 @@ Verify that you can load the ELK stack server from the browser at http://[ELK.VM
 You should see Kibana website as in (Images/Kibana1.png).
 #### Filebeat Installation
  Installing Filebeat on the DVWA Container\
-Navigate to http://[ELK.VM.IP]:5601.\ 
+Navigate to http://[ELK.VM.IP]:5601.<br/>
  If it is not running, open a terminal on your computer and SSH into the ELK server.Then, run:  docker container list -a 
 to verify that the container is on.\
 If it isn't, run:  docker start sebp/elk.\
@@ -186,8 +186,8 @@ If it isn't, run:  docker start sebp/elk.\
  Click on the DEB tab under Getting Started to view the correct Linux Filebeat installation instructions.
 #### Metricbeat Installation 
  Creating a Play to Install Metricbeat\
- To update your Ansible playbook to install Metricbeat:\
-From the homepage of your ELK site:\
+ To update your Ansible playbook to install Metricbeat:
+From the homepage of your ELK site:
  Click Add Metric Data.\
  Click Docker Metrics.\
  Click the DEB tab under Getting Started for the correct Linux instructions.\
