@@ -71,8 +71,8 @@ The playbook implements the following tasks:
 -explain the steps of the ELK installation play.
 
 Install Docker: -_The playbook should install the docker.io, python-pip, and docker, which is the Docker Python module services
-- name: Install docker.io 
-- apt:
+... name: Install docker.io 
+... apt:
 - force_apt_get: yes 
 - name: docker.io 
 - state: present
