@@ -37,6 +37,7 @@ The configuration details of each machine may be found below.
 |DVWA-VM1	 |host DVWA|10.0.0.8	  |Linux (Ubuntu 18.04)|
 |DVWA-VM2  |host DVWA|10.0.0.9   |Linux (Ubuntu 18.04)|
 |ELK-Server|host ELK	|10.0.0.14  |Linux (Ubuntu 18.04)|
+
 Note: Due to the limitation of the Azure supsicription, I was not able to create the whole number of VM as suppose to be, and as it is shown in the Network diagram.
 
 
@@ -135,4 +136,67 @@ SSH into the control node and follow the steps below:
 Copy the filebeat-configuration file to the Ansible container.
 Update the filebeat-configuration file to include the ELK server's IP address, (10.0.0.14), because we are connecting the DVWA machines to the ELK server.
 Run the playbook, and navigate to (VM_ELK serve'r IP address:5601) Kibana_ to check that the installation worked as expected.
-As a Bonus, provide the specific commands the user will need to run to download the playbook, update the files, etc.
+- Bonus:
+#### Ansible Playbooks
+Step_1 Connect to the jump box, and connect to the Ansible container in the box.
+run docker container list -a.
+docker start [container_name]
+docker attach [container_name]
+Create a YAML playbook file that will be used for the configuration.
+nano /etc/ansible/pentest.yml
+Then, run this Ansible playbook on the new virtual machine.
+run: ansible-playbook pentest.yml
+Then to verify that DVWA is running on the new VM, SSH to the new VM from your Ansible container.
+and run: curl localhost/setup.php 
+If everything is working, you should get back some HTML from the DVWA container.
+
+#### ELK Installation
+Step_1  Creating a New VM to run ELK
+Step_2 Downloading and Configuring the Container
+Add the new VM to the Ansible hosts file.
+Create a new Ansible playbook to use for thte new ELK virtual machine.
+- name: Config elk VM with Docker
+  hosts: elkservers
+  remote_user: elk
+  become: true
+  tasks:
+Step_3 Launching and Exposing the Container
+After Docker is installed, download and run the sebp/elk container.
+The container should be started with these published ports:
+5601:5601
+9200:9200
+5044:5044
+SSH from Ansible container to your ELK machine to verify the connection before you run playbook.
+ssh username@ELK_IP_address
+then exit, and run:
+ansible-playbook elk.yml  
+Step_4 Identity and Access Management
+This done in Azure lab
+ELK web server runs on port 5601. Create an incoming rule for the security group that allows TCP traffic over port 5601 from your IP address.
+Verify that you can load the ELK stack server from the browser at http://[ELK.VM.IP]:5601.
+You should see Kibana website as in (Images/Kibana1.png).
+#### Filebeat Installation
+Step_1 Installing Filebeat on the DVWA Container
+Navigate to http://[ELK.VM.IP]:5601. 
+If it is not running, open a terminal on your computer and SSH into the ELK server.Then, run:  docker container list -a 
+to verify that the container is on.
+If it isn't, run:  docker start sebp/elk.
+Open the ELK server homepage.
+Click on Add Log Data.
+Choose System Logs.
+Click on the DEB tab under Getting Started to view the correct Linux Filebeat installation instructions.
+#### Metricbeat Installation 
+Creating a Play to Install Metricbeat
+To update your Ansible playbook to install Metricbeat:
+From the homepage of your ELK site:
+Click Add Metric Data.
+Click Docker Metrics.
+Click the DEB tab under Getting Started for the correct Linux instructions.
+Update your playbook with tasks that perform the following:
+Download the Metricbeat .deb file.
+Use dpkg to install the .deb file.
+Update and copy the provided Metricbeat config file.
+Run the ./metricbeat modules enable docker command.
+Run the ./metricbeat setup command.
+Run the ./metricbeat -e command.
+
