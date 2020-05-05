@@ -94,7 +94,7 @@ pip:\
 name: docker<br/>
 state: present
 
-this task of the playbook is to increase the virtual memory on the VM, which is a system requirement for the ELK container<br/>
+This task of the playbook is to increase the virtual memory on the VM, which is a system requirement for the ELK container<br/>
 name: Increase virtual memory<br/>
 command: sysctl -w vm.max_map_count=262144<br/>
 
@@ -104,8 +104,8 @@ docker_container:
  name: elk\
  image: sebp/elk\
  state: started<br/>
- published_ports:
- 5601:5601
+ published_ports:<br/>
+ 5601:5601<br/>
  9200:9200<br/> 
  5044:5044
 
@@ -158,13 +158,13 @@ If everything is working, you should get back some HTML from the DVWA container.
   hosts: elkservers\
   remote_user: elk\
   become: true\
-  tasks:\
+  tasks:
 - Step_3 Launching and Exposing the Container
 - After Docker is installed, download and run the sebp/elk container.
 The container should be started with these published ports:
 5601:5601\
 9200:9200\
-5044:5044\
+5044:5044
 - SSH from Ansible container to your ELK machine to verify the connection before you run playbook.
 - ssh username@ELK_IP_address 
 then exit, and run:
