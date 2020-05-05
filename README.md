@@ -2,7 +2,7 @@
 The files in this repository were used to configure the network depicted below.\
 (Images/Network_Diagram.png)
 
- These files have been tested and used to generate a live ELK deployment on Azure. They can be used to either recreate the entire deployment pictured above. Alternatively, select portions of the filebeat-playbook.yml file may be used to install only certain pieces of it, such as Filebeat.\
+ These files have been tested and used to generate a live ELK deployment on Azure. They can be used to either recreate the entire deployment pictured above. Alternatively, select portions of the filebeat-playbook.yml file may be used to install only certain pieces of it, such as Filebeat.
 
 - elk.yml 
 - pentest.yml 
@@ -11,7 +11,7 @@ The files in this repository were used to configure the network depicted below.\
 - filebeat-playbook.yml
 - metricbeat-configuration.yml 
 - metricbeat.yml
-This document contains the following details:\
+This document contains the following details:
 
 ### Description of the Topologu
 - Access Policies
@@ -21,11 +21,11 @@ This document contains the following details:\
 - How to Use the Ansible Build
 - Description of the Topology
 
-The main purpose of this network is to expose a load-balanced and monitored instance of DVWA, the D*mn Vulnerable Web Application.\
+The main purpose of this network is to expose a load-balanced and monitored instance of DVWA, the D*mn Vulnerable Web Application.
 
-Load balancing ensures that the application will be highly _redundant, in addition to restricting access to the network.\
+Load balancing ensures that the application will be highly _redundant, in addition to restricting access to the network.
 What aspect of security do load balancers protect? What is the advantage of a jump box?\
-Load balancer protect the user authintication, mitigate DoS attacks, and provides a website an external IP address that is accessed by the internet.\
+Load balancer protect the user authintication, mitigate DoS attacks, and provides a website an external IP address that is accessed by the internet.<br/>
 Advantage of jump box is running an Ansible container, which has a full access to the VNet and used that container to configure another VM running a DVWA container.<br/>
 
 Integrating an ELK server allows users to easily monitor the vulnerable VMs for changes to the metrics and system files_.<br/>
@@ -71,7 +71,7 @@ Name	Publicly Accessible	Allowed IP Addresses
 ### Elk Configuration
 Ansible was used to automate configuration of the ELK machine. No configuration was performed manually, which is advantageous because it guarantees that configuration is identicall.
 -What is the main advantage of automating configuration with Ansible?<br/> 
-Configuration with Ansible is agentless, where is done by running the playbook files to automate one device or multiple devices.\
+Configuration with Ansible is agentless, where is done by running the playbook files to automate one device or multiple devices.
 
 The playbook implements the following tasks: 
 -explain the steps of the ELK installation play.
@@ -80,19 +80,19 @@ Install Docker: -_The playbook should install the docker.io, python-pip, and doc
 name: Install docker.io\
 apt:\
 force_apt_get: yes<br/>
-name: docker.io\
-state: present\
+name: docker.io<br/>
+state: present
 
 name: Install pip\
 apt:\
 force_apt_get: yes\
-name: python-pip\
-state: present\
+name: python-pip<br/>
+state: present
 
 name: Install Docker python module\
 pip:\
-name: docker\
-state: present\
+name: docker<br/>
+state: present
 
 -_this task of the playbook is to increase the virtual memory on the VM, which is a system requirement for the ELK container\
 name: Increase virtual memory\ 
@@ -100,16 +100,16 @@ command: sysctl -w vm.max_map_count=262144\
 
 -_Use docker_container module, Launching and Exposing the Container, so after Docker is installed, download and run the image sebp/elk container that should be started with the following published ports.\
 name: download and launch a docker elk container
-docker_container:\
+docker_container:
  name: elk\
  image: sebp/elk\
- state: started\ 
+ state: started<br/>
  published_ports:\
  5601:5601\
- 9200:9200\ 
- 5044:5044\
+ 9200:9200<br/> 
+ 5044:5044
 
-The following screenshot displays the result of running docker ps after successfully configuring the ELK instance.\
+The following screenshot displays the result of running docker ps after successfully configuring the ELK instance.<br/>
 
 (Images/docker_ps_output.png)
 
@@ -122,9 +122,9 @@ We have installed the following Beats on these machines:
 - metricbeat
 - filebeat
 These Beats allow us to collect the following information from each machine:
-Explain what kind of data each beat collects, and provide 1 example of what you expect to see.\
+Explain what kind of data each beat collects, and provide 1 example of what you expect to see.<br/>
 
-Filebeat:it is used to collect log files from very specific files, such as those generated by Apache, Microsoft Azure tools, the Nginx web server, and MySQL databases.( Specifically, it logs information about the file system, including which files have changed and when).\
+Filebeat:it is used to collect log files from very specific files, such as those generated by Apache, Microsoft Azure tools, the Nginx web server, and MySQL databases.( Specifically, it logs information about the file system, including which files have changed and when).<br/>
 Metricbeat: collects machine metrics, such as uptime.
 
 ### Using the Playbook
