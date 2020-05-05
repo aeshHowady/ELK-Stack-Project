@@ -78,21 +78,21 @@ The playbook implements the following tasks:
 
 Install Docker: -_The playbook should install the docker.io, python-pip, and docker, which is the Docker Python module services. 
 name: Install docker.io
-...apt:⋅⋅
-...force_apt_get: yes⋅⋅
-...name: docker.io⋅⋅ 
-...state: present⋅⋅
+-_apt:
+-_force_apt_get: yes
+-_name: docker.io
+-_state: present
 
-... name: Install pip⋅⋅
-...apt:⋅⋅
-...force_apt_get: yes⋅⋅ 
-...name: python-pip⋅⋅
-...state: present⋅⋅
+-_name: Install pip
+-_apt:
+-_force_apt_get: yes 
+-_name: python-pip
+-_state: present
 
-- name: Install Docker python module
-- pip:
-- name: docker
-- state: present
+-_name: Install Docker python module
+-_pip:
+-_name: docker
+-_state: present
 
 -_this task of the playbook is to increase the virtual memory on the VM, which is a system requirement for the ELK container
 name: Increase virtual memory 
