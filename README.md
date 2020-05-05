@@ -70,7 +70,7 @@ Configuration with Ansible is agentless, where is done by running the playbook f
 The playbook implements the following tasks: 
 -explain the steps of the ELK installation play.
 
-Install Docker: -_The playbook should install the docker.io, python-pip, and docker, which is the Docker Python module services.``
+Install Docker: -_The playbook should install the docker.io, python-pip, and docker, which is the Docker Python module services.⋅⋅
 ...name: Install docker.io 
 ..apt:
 - force_apt_get: yes 
