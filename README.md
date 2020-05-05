@@ -36,7 +36,8 @@ The configuration details of each machine may be found below.
 |Jump Box 	|Gateway  |10.0.0.4	  |Linux (Ubuntu 18.04)|    
 |DVWA-VM1	 |host DVWA|10.0.0.8	  |Linux (Ubuntu 18.04)|
 |DVWA-VM2  |host DVWA|10.0.0.9   |Linux (Ubuntu 18.04)|
-|ELK-Server|host ELK	|10.0.0.14  |Linux (Ubuntu 18.04)| 
+|ELK-Server|host ELK	|10.0.0.14  |Linux (Ubuntu 18.04)|
+Note: Due to the limitation of the Azure supsicription, I was not able to create the whole number of VM as suppose to be, and as it is shown in the Network diagram.
 
 
 ### Access Policies
