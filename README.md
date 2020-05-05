@@ -1,10 +1,16 @@
 ## Automated ELK Stack Deployment
-The files in this repository were used to configure the network depicted below. 
-(Images/Network_Diagram.png)
+The files in this repository were used to configure the network depicted below.⋅⋅ 
+...(Images/Network_Diagram.png)
 
  These files have been tested and used to generate a live ELK deployment on Azure. They can be used to either recreate the entire deployment pictured above. Alternatively, select portions of the filebeat-playbook.yml file may be used to install only certain pieces of it, such as Filebeat.
 
-elk.yml -pentest.yml -filebeat-configuration.yml -filebeat-playbook.yml -metricbeat-configuration.yml -metricbeat.yml
+- elk.yml 
+- pentest.yml 
+- filebeat
+- configuration.yml
+- filebeat-playbook.yml
+- metricbeat-configuration.yml 
+- metricbeat.yml
 This document contains the following details:
 
 ### Description of the Topologu
@@ -70,18 +76,18 @@ Configuration with Ansible is agentless, where is done by running the playbook f
 The playbook implements the following tasks: 
 -explain the steps of the ELK installation play.
 
-Install Docker: -_The playbook should install the docker.io, python-pip, and docker, which is the Docker Python module services.⋅⋅
-...name: Install docker.io 
-..apt:
-- force_apt_get: yes 
-- name: docker.io 
-- state: present
+Install Docker: -_The playbook should install the docker.io, python-pip, and docker, which is the Docker Python module services. 
+name: Install docker.io
+...apt:⋅⋅
+...force_apt_get: yes⋅⋅
+...name: docker.io⋅⋅ 
+...state: present⋅⋅
 
-- name: Install pip
-- apt:
-- force_apt_get: yes 
-- name: python-pip
-- state: present
+... name: Install pip⋅⋅
+...apt:⋅⋅
+...force_apt_get: yes⋅⋅ 
+...name: python-pip⋅⋅
+...state: present⋅⋅
 
 - name: Install Docker python module
 - pip:
