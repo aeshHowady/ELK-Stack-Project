@@ -133,6 +133,6 @@ In order to use the playbook, you will need to have an Ansible control node alre
 SSH into the control node and follow the steps below:
 
 Copy the filebeat-configuration file to the Ansible container.
-Update the filebeat-configuration file to include the ELK server's IP address, because we are connecting the DVWA machines to the ELK server.
+Update the filebeat-configuration file to include the ELK server's IP address, (10.0.0.14), because we are connecting the DVWA machines to the ELK server.
 Run the playbook, and navigate to (VM_ELK serve'r IP address:5601) Kibana_ to check that the installation worked as expected.
 As a Bonus, provide the specific commands the user will need to run to download the playbook, update the files, etc.
